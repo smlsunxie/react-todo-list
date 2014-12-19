@@ -12,9 +12,9 @@ var $ = require('gulp-load-plugins')();
 var browserify = require('browserify');
 var watchify = require('watchify');
 var source = require('vinyl-source-stream'),
-    
+
     sourceFile = './app/scripts/app.coffee',
-    
+
     destFolder = './dist/scripts',
     destFileName = 'app.js';
 
@@ -37,6 +37,7 @@ gulp.task('styles', function () {
 gulp.task('scripts', function () {
     var bundler = watchify(browserify({
         entries: [sourceFile],
+        expose: 'TodoApp',
         insertGlobals: true,
         cache: {},
         packageCache: {},
@@ -154,10 +155,10 @@ gulp.task('watch', ['html', 'bundle', 'serve'], function () {
     // Watch .html files
     gulp.watch('app/*.html', ['html']);
 
-    
+
     // Watch .scss files
     gulp.watch('app/styles/**/*.scss', ['styles']);
-    
+
 
 
     // Watch .jade files
