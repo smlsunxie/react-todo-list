@@ -1,7 +1,7 @@
 {
   "name": "react-todo-list",
   "version": "0.0.1",
-  main:[
+  "main":[
     "dist/scripts/app.js",
     "dist/styles/main.css"
   ],
